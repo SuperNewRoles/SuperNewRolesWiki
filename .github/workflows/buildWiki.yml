@@ -28,33 +28,20 @@ jobs:
         run: |
           python main.py
           
-      - name: Check if gh-pages branch exists
-        id: check-branch
-        run: |
-          if git show-ref --quiet refs/heads/gh-pages; then
-            echo "::set-output name=branch_exists::true"
-          else
-            echo "::set-output name=branch_exists::false"
-          fi
-
-      - name: Create or switch to ABC branch
-        run: |
-          if [ "${{ steps.check-branch.outputs.branch_exists }}" == "false" ]; then
-            git checkout -b gh-pages
-            git push origin gh-pages
-            git checkout master
-          fi
-          
       - name: Deploy to gh-pages
         if: success()
         run: |
           git config --global user.name 'SimpleGitDocs'
           git config --global user.email 'SimpleGitDocs@example.com'
-          git clone https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} gh-pages          
-          cd gh-pages
-          rm -rf gh-pages/*
-          cp -r ./temp/* ./gh-pages/
-          cd gh-pages
+          git clone https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} gh-pages-repo
+          cd gh-pages-repo
+          if [ -z "$(git branch -r | grep 'origin/gh-pages')" ]; then
+            git checkout --orphan gh-pages
+          else
+            git checkout gh-pages
+          fi
+          rm -rf *
+          cp -r ../temp/* .
           git add .
           git commit -m 'Deploy to gh-pages'
           git push origin gh-pages --force
