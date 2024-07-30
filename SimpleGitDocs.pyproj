@@ -45,7 +45,7 @@
     </Interpreter>
   </ItemGroup>
   <ItemGroup>
-    <Content Include=".github\workflows\autoUpdate.txt" />
+    <Content Include=".github\workflows\autoUpdate.yml" />
     <Content Include=".github\workflows\buildWiki.yml" />
     <Content Include="Assets\404.js" />
     <Content Include="Docs\404.md" />
