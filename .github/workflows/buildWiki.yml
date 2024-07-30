@@ -42,7 +42,7 @@ jobs:
         run: |
           git config --global user.name 'SimpleGitDocs'
           git config --global user.email 'SimpleGitDocs@example.com'
-          git clone --branch master https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} gh-pages
+          git clone https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} gh-pages          
           cd gh-pages
           if [ "${{ steps.check-branch.outputs.branch_exists }}" == "false" ]; then
             git checkout -b gh-pages
