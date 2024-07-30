@@ -21,6 +21,10 @@ OGP_SITE_NAME = "SimpleGitDocs"
 # For Example: "@example"
 OGP_TWITTER_SITE = "@ReYYYYoking"
 
+# リポジトリのパス
+# Repository path
+# For Example: "SimpleGitDocs/SimpleGitDocsDocument"
+RepositoryPath: str = "SimpleGitDocs/SimpleGitDocsDocument"
 
 # そのままでもいいもの
 
@@ -57,6 +61,12 @@ MaxThreads: int = 40
 # マークダウン内のScriptタグをエスケープするか
 # Whether to escape the script tag in the markdown
 IsEscapeScript: bool = False
+# AssetsでGitHackを使用するか
+# Whether to use GitHack
+IsUseGitHack: bool = True
+# GitHackの対象ブランチ
+# Branch of GitHack
+GitHackBranch: str = "gh-pages"
 
 # Twitterのカードタイプ
 # Twitter card type

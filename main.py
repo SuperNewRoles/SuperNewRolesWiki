@@ -50,9 +50,12 @@ def convert_asset_paths(content, markdown_file_path):
     def replace_url(match):
         url: str = match.group(1)
         if url.startswith("Assets/"):
-            base_dir = os.path.dirname(markdown_file_path)
-            new_url = RemoveExtension(os.path.relpath(url, base_dir)) + ".webp"
-            return f'({new_url})'.replace("\\","/")
+            if Constants.IsUseGitHack:
+                return f'(https://raw.githack.com/{Constants.RepositoryPath}/{Constants.PushBranch}/{Constants.GitHackBranch}/{RemoveExtension(url)}.webp)'
+            else:
+                base_dir = os.path.dirname(markdown_file_path)
+                new_url = RemoveExtension(os.path.relpath(url, base_dir)) + ".webp"
+                return f'({new_url})'.replace("\\","/")
         return match.group(0)
     
     new_content = re.sub(url_pattern, replace_url, content)
@@ -187,7 +190,10 @@ def Replace_Content(content: str, Template: str, filePath: str, fileName: str) -
     
     # Replace Template Javascript
     FolderName = os.path.dirname(os.path.dirname(fileName)+".md")
-    result = result.replace(Constants.PATH_TEMPLATEJS_TAG, Constants.OriginPath+"/wiki.js")
+    if Constants.IsUseGitHack:
+        result = result.replace(Constants.PATH_TEMPLATEJS_TAG, f"https://raw.githack.com/{Constants.RepositoryPath}/{Constants.PushBranch}/{Constants.GitHackBranch}/{Constants.TemplateJavaScriptPath}")
+    else:
+        result = result.replace(Constants.PATH_TEMPLATEJS_TAG, Constants.OriginPath+"/"+Constants.TemplateJavaScriptPath)
     
     # replace_wikilinks
     content = replace_wikilinks(content, docLinks, filePath)
