@@ -49,9 +49,9 @@ def convert_asset_paths(content, markdown_file_path):
     
     def replace_url(match):
         url: str = match.group(1)
-        if url.startswith("Assets/"):
+        if url.startswith(f"{Constants.AssetFolder}/"):
             if Constants.IsUseGitHack:
-                return f'(https://raw.githack.com/{Constants.RepositoryPath}/{Constants.PushBranch}/{Constants.GitHackBranch}/{RemoveExtension(url)}.webp)'
+                return f'(https://raw.githack.com/{Constants.RepositoryPath}/{Constants.GitHackBranch}/{RemoveExtension(url)}.webp)'
             else:
                 base_dir = os.path.dirname(markdown_file_path)
                 new_url = RemoveExtension(os.path.relpath(url, base_dir)) + ".webp"
@@ -344,7 +344,16 @@ def ProcessSiteMap():
             print("Error!!!!!!!!!!")
             print("Sitemap is invalid.")
             print(e)
-            
+
+def ProcessCNAME():
+    print("Processing CNAME")
+    if not os.path.exists(f"./CNAME"):
+        print("CNAME is not found. Skip processing CNAME.")
+        return
+    with open ("./CNAME", "r", encoding="utf-8") as CNAME:
+        with open(f"{Constants.ResultDirectory}/CNAME", "w", encoding="utf-8") as CNAMETarget:
+            CNAMETarget.write(CNAME.read())
+
 def main():
     InitializeResultFolder()
     ProcessAssets()
@@ -352,6 +361,7 @@ def main():
     ProcessJavaScript()
     ProcessRobotsTxt()
     ProcessSiteMap()
+    ProcessCNAME()
     print("Finished")
     
 if __name__ == "__main__":
