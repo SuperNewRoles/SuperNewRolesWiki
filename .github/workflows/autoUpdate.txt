@@ -1,0 +1,64 @@
+name: Auto Update
+
+on:
+  schedule:
+    - cron: '0 0 * * 0'
+  workflow_dispatch:
+
+jobs:
+  update-repo:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout self repository
+      uses: actions/checkout@v2
+      with:
+        path: self
+
+    - name: Checkout target repository
+      uses: actions/checkout@v2
+      with:
+        repository: AAA/BBB
+        path: target
+
+    - name: Check for update.txt existence in target
+      id: check-target-update-txt
+      run: |
+        if [ ! -f target/update.txt ]; then
+          echo "target_update_exists=false" >> $GITHUB_ENV
+        else
+          echo "target_update_exists=true" >> $GITHUB_ENV
+        fi
+
+    - name: Check for update.txt existence in self
+      id: check-self-update-txt
+      run: |
+        if [ ! -f self/update.txt ]; then
+          echo "self_update_exists=false" >> $GITHUB_ENV
+        else
+          echo "self_update_exists=true" >> $GITHUB_ENV
+        fi
+
+    - name: Compare update.txt
+      id: compare
+      if: ${{ env.target_update_exists == 'true' && env.self_update_exists == 'true' }}
+      run: |
+        self_update_size=$(stat -c%s "self/update.txt")
+        target_update_size=$(stat -c%s "target/update.txt")
+        echo "self_update_size=$self_update_size" >> $GITHUB_ENV
+        echo "target_update_size=$target_update_size" >> $GITHUB_ENV
+
+    - name: Conditional copy and commit
+      if: ${{ env.target_update_exists == 'true' && env.self_update_exists == 'true' && env.self_update_size < env.target_update_size }}
+      run: |
+        cp target/main.py self/main.py
+        cp target/.github/workflows/AutoUpdate.yml self/.github/workflows/AutoUpdate.yml
+        cp target/requirements.txt self/requirements.txt
+        cp target/LICENSE.txt self/LICENSE.txt
+        cp target/update.txt self/update.txt
+        cd self
+        git config --global user.name 'SimpleGitDocs'
+        git config --global user.email 'SimpleGitDocs@example.com'
+        git add main.py .github/workflows/AutoUpdate.yml requirements.txt LICENSE.txt update.txt
+        git commit -m "Auto update from AAA/BBB"
+        git push

@@ -26,8 +26,10 @@
     <Compile Include="test.py" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include=".github\workflows\" />
     <Folder Include="Docs\" />
     <Folder Include="Assets\" />
+    <Folder Include=".github\" />
     <Folder Include="temp\" />
     <Folder Include="env\" />
   </ItemGroup>
@@ -43,9 +45,12 @@
     </Interpreter>
   </ItemGroup>
   <ItemGroup>
+    <Content Include=".github\workflows\autoUpdate.txt" />
+    <Content Include=".github\workflows\buildWiki.yml" />
     <Content Include="Assets\404.js" />
     <Content Include="Docs\404.md" />
     <Content Include="robots.txt" />
+    <Content Include="update.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
