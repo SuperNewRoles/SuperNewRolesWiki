@@ -3,7 +3,7 @@ import shutil
 import Constants
 import glob
 import markdown
-from PIL import Image
+from PIL.WebPImagePlugin import Image
 import re
 from pathlib import Path
 import rjsmin
