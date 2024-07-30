@@ -199,7 +199,7 @@ def Replace_Content(content: str, Template: str, filePath: str, fileName: str) -
     # Add title to Markdown
     if docTitle.lower() != "index" and docTitle.lower() != "404":
         content = f"# {docTitle}\n\n{content}"
-    print(md.convert(content))
+    
     # Convert Markdown to HTML
     result = result.replace(Constants.TEMPLATE_CONTENT, md.convert(content))
     
