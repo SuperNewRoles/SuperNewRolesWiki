@@ -30,7 +30,7 @@ jobs:
 
       - name: Create gh-pages branch and push if it doesn't exist
         run: |
-          git branch | grep gh-pages || git checkout -b gh-pages && git push origin gh-pages
+          git branch | grep gh-pages || git checkout -b gh-pages && git push -u origin gh-pages
 
       - name: Deploy to gh-pages
         if: success()
