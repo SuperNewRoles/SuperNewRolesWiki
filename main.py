@@ -69,6 +69,8 @@ def ProcessAssets():
             fileName = os.path.relpath(filePath, Constants.AssetFolder)
             # ディレクトリを生成
             os.makedirs(f"{Constants.ResultDirectory}/{os.path.dirname(fileName)}", exist_ok=True)
+            print("IMAGE_SAVE:")
+            print(Image.SAVE)
             # ファイルをコピー
             with open(filePath, "rb") as asset:
                 if Constants.IsConvertWEBP and (fileName.endswith(".png") or fileName.endswith(".jpg")):
