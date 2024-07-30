@@ -36,6 +36,14 @@ jobs:
           else
             echo "::set-output name=branch_exists::false"
           fi
+
+      - name: Create or switch to ABC branch
+        run: |
+          if [ "${{ steps.check-branch.outputs.branch_exists }}" == "false" ]; then
+            git checkout -b gh-pages
+            git push origin gh-pages
+            git checkout master
+          fi
           
       - name: Deploy to gh-pages
         if: success()
@@ -44,10 +52,6 @@ jobs:
           git config --global user.email 'SimpleGitDocs@example.com'
           git clone https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} gh-pages          
           cd gh-pages
-          if [ "${{ steps.check-branch.outputs.branch_exists }}" == "false" ]; then
-            git checkout -b gh-pages
-          else
-            git checkout gh-pages
           rm -rf gh-pages/*
           cp -r ./temp/* ./gh-pages/
           cd gh-pages
