@@ -28,9 +28,9 @@ jobs:
         run: |
           python main.py
 
-      - name: Create gh-pages branch if it doesn't exist
+      - name: Create gh-pages branch and push if it doesn't exist
         run: |
-          git branch | grep gh-pages || git checkout -b gh-pages
+          git branch | grep gh-pages || git checkout -b gh-pages && git push origin gh-pages
 
       - name: Deploy to gh-pages
         if: success()
