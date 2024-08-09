@@ -132,7 +132,10 @@ body > div.ContentsObject {
         max-width: 15rem;
         
         > div#Headdings {
-          align-items: flex-end;
+          align-items: end;
+          display: flex;
+          flex-direction: column;
+          
           > a.Button {
             border-radius: 4px;
             padding: calc(0.5rem - 1px) 1em;
