@@ -24,7 +24,7 @@ function UpdateStorage(key,value)
 function UpdateHeadding()
 {var headdings=document.getElementById("Headdings");let heads=[];for(var key in headding_dict)
 {if(key!="")
-heads.append(Generate_Headding(key,headdings));for(var i=0;i<headding_dict[key].length;i++){heads.append(Generate_Headding(headding_dict[key][i],headdings));}}
+heads.push(Generate_Headding(key,headdings));for(var i=0;i<headding_dict[key].length;i++){heads.push(Generate_Headding(headding_dict[key][i],headdings));}}
 const size="10px";heads[0].style.borderTopRightRadius=size;heads[0].style.borderTopLeftRadius=size;heads[heads.length-1].style.borderBottomRightRadius=size;heads[heads.length-1].style.borderBottomLeftRadius=size;}
 function Generate_Headding(key,headdings)
 {var headding=document.createElement("a");headding.innerText=key;headding.classList.add("Button");headding.setAttribute("href","#"+key);headdings.appendChild(headding);return headding;}
