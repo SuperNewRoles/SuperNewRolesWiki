@@ -8,23 +8,23 @@ OriginPath: str = ""
 # ドメイン
 # Domain
 # For Example: "https://example.com"
-URL_DOMAIN = "https://simplegitdocs.yoking.dev"
+URL_DOMAIN = "https://wiki.supernewroles.com"
 
 # OGPの設定
 
 # サイト名
 # Site name
-OGP_SITE_NAME = "SimpleGitDocs"
+OGP_SITE_NAME = "SuperNewRolesWiki"
 
 # Twitterのハンドルネーム
 # Twitter HandleName
 # For Example: "@example"
-OGP_TWITTER_SITE = "@ReYYYYoking"
+OGP_TWITTER_SITE = "@SNROfficials"
 
 # リポジトリのパス
 # Repository path
 # For Example: "SimpleGitDocs/SimpleGitDocsDocument"
-RepositoryPath: str = "SimpleGitDocs/SimpleGitDocsDocument"
+RepositoryPath: str = "SuperNewRoles/SuperNewRolesWiki"
 
 # そのままでもいいもの
 
