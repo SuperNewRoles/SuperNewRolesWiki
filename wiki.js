@@ -60,7 +60,7 @@ function UpdateStorage(key, value)
 }
 function UpdateHeadding()
 {
-    var headdings = document.getElementById("Headdings");
+    var headdings = document.getElementById("ContentsTableObject");
     for (var i = 0; i < headding_one.length; i++)
     {
         var headding = document.createElement("a");
@@ -68,6 +68,7 @@ function UpdateHeadding()
         headding.classList.add("Button");
         headding.setAttribute("href", "#" + headding_one[i]);
         headdings.appendChild(headding);
+        headdings.appendChild(document.createElement("br"));
     }
 }
 fetch_files();
@@ -107,8 +108,5 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
     UpdateByStorage();
-    console.log(headding_one);
     UpdateHeadding();
 });
-console.log(headding_one);
-UpdateHeadding();
