@@ -4,7 +4,7 @@ body {
 
     > div.ContentsObject {
       > div.ContentsTableObject {
-        > div.Headdings{
+        > div#Headdings{
           > a.Button {
             text-decoration: none;
             color: black;
@@ -61,7 +61,7 @@ body.Dark {
     
     > div.ContentsObject {
       > div.ContentsTableObject {
-        > div.Headdings{
+        > div#Headdings{
           > a.Button {
             text-decoration: none;
             color: #E8EAED;
