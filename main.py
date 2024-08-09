@@ -191,7 +191,7 @@ def Replace_Content(content: str, Template: str, filePath: str, fileName: str) -
     # Replace Template Javascript
     FolderName = os.path.dirname(os.path.dirname(fileName)+".md")
     if Constants.IsUseGitHack:
-        result = result.replace(Constants.PATH_TEMPLATEJS_TAG, f"https://raw.githack.com/{Constants.RepositoryPath}/{Constants.PushBranch}/{Constants.GitHackBranch}/{Constants.TemplateJavaScriptPath}")
+        result = result.replace(Constants.PATH_TEMPLATEJS_TAG, f"https://raw.githack.com/{Constants.RepositoryPath}/{Constants.GitHackBranch}/{Constants.TemplateJavaScriptPath}")
     else:
         result = result.replace(Constants.PATH_TEMPLATEJS_TAG, Constants.OriginPath+"/"+Constants.TemplateJavaScriptPath)
     
