@@ -56,15 +56,12 @@ document.addEventListener("DOMContentLoaded", function () {
         var suggestionList = document.getElementById("Suggestions")
         suggestionList.innerHTML = ""
         for (var i = 0; i < suggestions.length; i++) {
-            var suggestion = document.createElement("div")
+            var suggestion = document.createElement("a")
             const SplitedSuggest = suggestions[i].split("/")
             suggestion.innerText = SplitedSuggest[SplitedSuggest.length - 1]
             suggestion.classList.add("Suggest");
             var url = "/" + suggestions[i]
-            // Add anker
-            suggestion.addEventListener("click", function () {
-                window.location.href = url
-            });
+            suggestion.setAttribute("href", url)
             suggestionList.appendChild(suggestion)
         }
         lastSearchText = search
