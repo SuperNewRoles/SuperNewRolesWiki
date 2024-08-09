@@ -170,6 +170,23 @@ def GetDocumentLastMod(filePath: str) -> str or None:
 def RemoveExtension(path: str) -> str:
     return ".".join(os.path.splitext(path)[:-1])
 
+def ReplaceHeadding(result: str, content: str) -> str:
+    # 各ヘッダーレベルに対応するリストを初期化
+    headers_h1 = []
+    headers_h2 = []
+    
+    # 行ごとにマークダウンテキストを処理
+    for line in content.splitlines():
+        if line.startswith("# "):  # 見出しレベル1
+            headers_h1.append(line[2:].strip())
+        elif line.startswith("## "):  # 見出しレベル2
+            headers_h2.append(line[3:].strip())
+
+    result = result.replace("{CONTENT_HEADDING_ONE}", str(headers_h1))
+    result = result.replace("{CONTENT_HEADDING_TWO}", str(headers_h2))
+    
+    return result
+
 def Replace_Content(content: str, Template: str, filePath: str, fileName: str) -> str:
     # Get Document Title from File Path Extension off
     docTitle = RemoveExtension(os.path.basename(filePath))
@@ -206,6 +223,9 @@ def Replace_Content(content: str, Template: str, filePath: str, fileName: str) -
     if docTitle.lower() != "index" and docTitle.lower() != "404":
         content = f"# {docTitle}\n\n{content}"
     
+    # Replace Headding Script
+    result = ReplaceHeadding(result, content)
+
     # Convert Markdown to HTML
     result = result.replace(Constants.TEMPLATE_CONTENT, md.convert(content))
     
