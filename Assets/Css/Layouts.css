@@ -60,7 +60,7 @@ body > div.HeaderObject {
                     position: absolute;
                     top: 3.25rem;
                     
-                    > div.Suggest {
+                    > a.Suggest {
                         display: flex;
                         align-items: center;
                         border: solid rgb(89, 92, 96);
