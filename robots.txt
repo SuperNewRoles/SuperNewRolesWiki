@@ -2,4 +2,4 @@ User-agent: *
 Disallow: /Assets/
 Disallow: /404.html
 
-Sitemap: https://simplegitdocs.yoking.dev/sitemap.xml
+Sitemap: https://wiki.supernewroles.com/sitemap.xml
