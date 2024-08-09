@@ -45,6 +45,22 @@ function RandomShow(HTMLId, len)
             i == random ? "block" : "none";
     }
 }
+function UpdateByCookie()
+{
+    var cookies = document.cookie.split(";");
+    for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i].split("=");
+        if (cookie[0].trim() == "DarkMode" && cookie[1].trim() == "true") {
+            document.body.classList.add("Dark");
+        }
+    }
+}
+function UpdateCookie(key, value)
+{
+    var date = new Date();
+    date.setTime(date.getTime() + 1000 * 60 * 60 * 24 * 365);
+    document.cookie = key + "=" + value + "; expires=" + date.toUTCString();
+}
 fetch_files()
 let lastSearchText = "";
 document.addEventListener("DOMContentLoaded", function () {
@@ -74,5 +90,13 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     document.getElementById("Light-DarkToggleButton").addEventListener("click", function () {
         document.body.classList.toggle("Dark");
+        // Set Cookie
+        if (document.body.classList.contains("Dark")) {
+            UpdateCookie("DarkMode", "true");
+        } else {
+            UpdateCookie("DarkMode", "false");
+        }
     });
+    UpdateByCookie();
 });
+UpdateByCookie();
