@@ -20,7 +20,7 @@ document.body.classList.remove("Dark");}
 function UpdateStorage(key,value)
 {localStorage.setItem(key,value);}
 function UpdateHeadding()
-{var headdings=document.getElementById("ContentsTableObject");for(var i=0;i<headding_one.length;i++)
+{var headdings=document.getElementById("Headdings");for(var i=0;i<headding_one.length;i++)
 {var headding=document.createElement("a");headding.innerText=headding_one[i];headding.classList.add("Button");headding.setAttribute("href","#"+headding_one[i]);headdings.appendChild(headding);headdings.appendChild(document.createElement("br"));}}
 fetch_files();let lastSearchText="";document.addEventListener("DOMContentLoaded",function(){document.getElementById("search").addEventListener("input",function(){var search=document.getElementById("search").value;if(search.length==0)
 {document.getElementById("Suggestions").innerHTML=""
