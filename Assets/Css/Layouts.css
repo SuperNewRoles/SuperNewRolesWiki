@@ -131,21 +131,22 @@ body > div.ContentsObject {
         /* ここで目次の最大の横幅変えられる */
         max-width: 15rem;
         
+        > div#Headdings:first-child {
+            border-top-right-radius: 10px;
+            border-top-left-radius: 10px;
+        }
+
+        > div#Headdings:last-child {
+          border-bottom-right-radius: 10px;
+          border-bottom-left-radius: 10px;
+        }
+
         > div#Headdings {
           align-items: end;
           display: flex;
           flex-direction: column;
           margin-right: 40px;
           
-          &:first-child {
-            border-top-right-radius: 10px;
-            border-top-left-radius: 10px;
-          }
-    
-          &:last-child {
-            border-bottom-right-radius: 10px;
-            border-bottom-left-radius: 10px;
-          }
         
           > a.Button {
             padding: calc(0.5rem - 1px) 1em;
