@@ -51,7 +51,7 @@ function SetDarkMode(isDarkMode) {
         document.body.classList.remove("Dark");
     }
 }
-function UpdateByStorage()
+function InitializeDarkmode()
 {
     // Local storage
     var darkMode = localStorage.getItem("DarkMode");
@@ -64,8 +64,10 @@ function UpdateByStorage()
         // ブラウザがダークモードか判定
         if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
             SetDarkMode(true);
+            UpdateStorage("DarkMode", "true");
         } else {
             SetDarkMode(false);
+            UpdateStorage("DarkMode", "false");
         }
     }
 }
@@ -147,7 +149,7 @@ document.addEventListener("DOMContentLoaded", function () {
             UpdateStorage("DarkMode", "false");
         }
     });
-    UpdateByStorage();
+    InitializeDarkmode();
     UpdateHeadding();
     UpdateAnker();
 });
