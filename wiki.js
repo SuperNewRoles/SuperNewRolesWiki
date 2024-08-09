@@ -54,8 +54,14 @@ document.addEventListener("DOMContentLoaded", function () {
         suggestionList.innerHTML = ""
         for (var i = 0; i < suggestions.length; i++) {
             var suggestion = document.createElement("div")
-            suggestion.innerText = suggestions[i]
+            const SplitedSuggest = suggestions[i].split("/")
+            suggestion.innerText = SplitedSuggest[SplitedSuggest.length - 1]
             suggestion.classList.add("Suggestion");
+            var url = "/" + suggestions[i]
+            // Add anker
+            suggestion.addEventListener("click", function () {
+                window.location.href = url
+            });
             suggestionList.appendChild(suggestion)
         }
     });
