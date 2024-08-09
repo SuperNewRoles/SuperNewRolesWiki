@@ -131,8 +131,8 @@ body > div.ContentsObject {
         /* ここで目次の最大の横幅変えられる */
         max-width: 15rem;
         
-        > div.Headdings{
-        align-items: flex-end;
+        > div.Headdings {
+          align-items: flex-end;
           > a.Button {
             border-radius: 4px;
             padding: calc(0.5rem - 1px) 1em;
