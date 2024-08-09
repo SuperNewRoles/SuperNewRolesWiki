@@ -46,10 +46,13 @@ function RandomShow(HTMLId, len)
     }
 }
 fetch_files()
+let lastSearchText = ""
 document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("search").addEventListener("input", function () {
         var search = document.getElementById("search").value;
         var suggestions = GetSuggestions(search, 5)
+        if (suggestions.length == 0 && Math.abs(lastSearchText.length - search.length) <= 2)
+            return
         var suggestionList = document.getElementById("Suggestions")
         suggestionList.innerHTML = ""
         for (var i = 0; i < suggestions.length; i++) {
@@ -64,6 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
             });
             suggestionList.appendChild(suggestion)
         }
+        lastSearchText = search
     });
     document.getElementById("Light-DarkToggleButton").addEventListener("click", function () {
         document.body.classList.toggle("Dark");
