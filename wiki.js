@@ -23,7 +23,7 @@ function UpdateHeadding()
 {var headdings=document.getElementById("Headdings");for(var key in headding_dict)
 {if(key!="")
 Generate_Headding(key);for(var i=0;i<headding_dict[key].length;i++){Generate_Headding(headding_dict[key][i]);}}}
-function Generate_Headding(headding)
+function Generate_Headding(key)
 {var headding=document.createElement("a");headding.innerText=key;headding.classList.add("Button");headding.setAttribute("href","#"+key);headdings.appendChild(headding);}
 fetch_files();let lastSearchText="";document.addEventListener("DOMContentLoaded",function(){document.getElementById("search").addEventListener("input",function(){var search=document.getElementById("search").value;if(search.length==0)
 {document.getElementById("Suggestions").innerHTML=""
