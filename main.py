@@ -51,7 +51,7 @@ def convert_asset_paths(content, markdown_file_path):
         url: str = match.group(1)
         if url.startswith(f"{Constants.AssetFolder}/"):
             if Constants.IsUseGitHack:
-                return f'(https://rawcdn.githack.com/{Constants.RepositoryPath}/{Constants.GitHackBranch}/{RemoveExtension(url)}.webp)'
+                return f'(https://raw.githack.com/{Constants.RepositoryPath}/{Constants.GitHackBranch}/{RemoveExtension(url)}.webp)'
             else:
                 base_dir = os.path.dirname(markdown_file_path)
                 new_url = RemoveExtension(os.path.relpath(url, base_dir)) + ".webp"
@@ -191,7 +191,7 @@ def Replace_Content(content: str, Template: str, filePath: str, fileName: str) -
     # Replace Template Javascript
     FolderName = os.path.dirname(os.path.dirname(fileName)+".md")
     if Constants.IsUseGitHack:
-        result = result.replace(Constants.PATH_TEMPLATEJS_TAG, f"https://rawcdn.githack.com/{Constants.RepositoryPath}/{Constants.GitHackBranch}/{Constants.TemplateJavaScriptPath}")
+        result = result.replace(Constants.PATH_TEMPLATEJS_TAG, f"https://raw.githack.com/{Constants.RepositoryPath}/{Constants.GitHackBranch}/{Constants.TemplateJavaScriptPath}")
     else:
         result = result.replace(Constants.PATH_TEMPLATEJS_TAG, Constants.OriginPath+"/"+Constants.TemplateJavaScriptPath)
     
