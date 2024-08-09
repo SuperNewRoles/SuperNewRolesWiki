@@ -2,7 +2,7 @@ body {
     background-color: rgb(255, 255, 255);
     color: black;
     
-    > a.Button {
+    a.Button {
       text-decoration: none;
       color: black;
       background-color: rgb(211, 219, 227);
@@ -53,7 +53,7 @@ body.Dark {
       }
     }
 
-    > a.Button {
+    a.Button {
       text-decoration: none;
       color: #E8EAED;
       background-color: rgb(101, 109, 117);
