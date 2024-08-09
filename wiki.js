@@ -61,8 +61,6 @@ function UpdateStorage(key, value)
 function UpdateHeadding()
 {
     var headdings = document.getElementById("Headdings");
-    // headding_dict
-    // headding_dict = { "headding": ["headding_one","head_2"] }
     for (var key in headding_dict)
     {
         if (key != "")
@@ -72,7 +70,7 @@ function UpdateHeadding()
         }
     }
 }
-function Generate_Headding(headding)
+function Generate_Headding(key)
 {
     var headding = document.createElement("a");
     headding.innerText = key;
