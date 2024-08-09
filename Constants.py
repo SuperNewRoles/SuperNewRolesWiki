@@ -63,7 +63,7 @@ MaxThreads: int = 40
 IsEscapeScript: bool = False
 # AssetsでGitHackを使用するか
 # Whether to use GitHack
-IsUseGitHack: bool = True
+IsUseGitHack: bool = False
 # GitHackの対象ブランチ
 # Branch of GitHack
 GitHackBranch: str = "gh-pages"
