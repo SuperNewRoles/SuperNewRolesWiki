@@ -172,18 +172,20 @@ def RemoveExtension(path: str) -> str:
 
 def ReplaceHeadding(result: str, content: str) -> str:
     # 各ヘッダーレベルに対応するリストを初期化
-    headers_h1 = []
-    headers_h2 = []
+    headers = {}
+    headertitle = ""
     
     # 行ごとにマークダウンテキストを処理
     for line in content.splitlines():
         if line.startswith("# "):  # 見出しレベル1
-            headers_h1.append(line[2:].strip())
+            headertitle = line[2:].strip()
+            headers[headertitle] = []
         elif line.startswith("## "):  # 見出しレベル2
-            headers_h2.append(line[3:].strip())
+            if headertitle not in headers:
+                headers[headertitle] = []
+            headers[headertitle].append(line[3:].strip())
 
-    result = result.replace("{CONTENT_HEADDING_ONE}", str(headers_h1))
-    result = result.replace("{CONTENT_HEADDING_TWO}", str(headers_h2))
+    result = result.replace("{CONTENT_HEADDING}", str(headers))
     
     return result
 
