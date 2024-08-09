@@ -2,6 +2,12 @@ body {
     background-color: rgb(255, 255, 255);
     color: black;
     
+    > a.Button {
+      text-decoration: none;
+      color: black;
+      background-color: rgb(211, 219, 227);
+    }
+
     > div.HeaderObject {
         background-color: rgb(191, 191, 191);
         
@@ -45,6 +51,12 @@ body.Dark {
       &:visited {
         color: rgb(117, 214, 198);
       }
+    }
+
+    > a.Button {
+      text-decoration: none;
+      color: #E8EAED;
+      background-color: rgb(101, 109, 117);
     }
 
     > div.HeaderObject {

@@ -134,10 +134,9 @@ body > div.ContentsObject {
         > a.Button {
             border-radius: 4px;
             padding: calc(0.5rem - 1px) 1em;
-            background-color: rgb(101, 109, 117);
             cursor: pointer;
             transition: background-color 250ms;
-            width: 100%;
+            width: 80%;
             
             &:hover {
                 background-color: rgb(255, 239, 128);
