@@ -135,7 +135,8 @@ body > div.ContentsObject {
           align-items: end;
           display: flex;
           flex-direction: column;
-          
+          margin-right: 40px;
+
           > a.Button {
             border-radius: 4px;
             padding: calc(0.5rem - 1px) 1em;
