@@ -61,14 +61,24 @@ function UpdateStorage(key, value)
 function UpdateHeadding()
 {
     var headdings = document.getElementById("Headdings");
-    for (var i = 0; i < headding_one.length; i++)
+    // headding_dict
+    // headding_dict = { "headding": ["headding_one","head_2"] }
+    for (var key in headding_dict)
     {
-        var headding = document.createElement("a");
-        headding.innerText = headding_one[i];
-        headding.classList.add("Button");
-        headding.setAttribute("href", "#" + headding_one[i]);
-        headdings.appendChild(headding);
+        if (key != "")
+            Generate_Headding(key);
+        for (var i = 0; i < headding_dict[key].length; i++) {
+            Generate_Headding(headding_dict[key][i]);
+        }
     }
+}
+function Generate_Headding(headding)
+{
+    var headding = document.createElement("a");
+    headding.innerText = key;
+    headding.classList.add("Button");
+    headding.setAttribute("href", "#" + key);
+    headdings.appendChild(headding);
 }
 fetch_files();
 let lastSearchText = "";
