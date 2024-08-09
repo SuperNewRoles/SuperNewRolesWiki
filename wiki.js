@@ -13,10 +13,12 @@ return suggestions;}
 function RandomShow(HTMLId,len)
 {var random=Math.floor(Math.random()*len);for(var i=0;i<len;i++)
 {document.getElementById(HTMLId+"_"+i).style.display=i==random?"block":"none";}}
-function UpdateByStorage()
+function SetDarkMode(isDarkMode){if(isDarkMode){document.body.classList.add("Dark");}else{document.body.classList.remove("Dark");}}
+function InitializeDarkmode()
 {var darkMode=localStorage.getItem("DarkMode");if(darkMode=="true")
-document.body.classList.add("Dark");else
-document.body.classList.remove("Dark");}
+SetDarkMode(true);else if(darkMode=="false")
+SetDarkMode(false);else
+{if(window.matchMedia('(prefers-color-scheme: dark)').matches){SetDarkMode(true);UpdateStorage("DarkMode","true");}else{SetDarkMode(false);UpdateStorage("DarkMode","false");}}}
 function UpdateStorage(key,value)
 {localStorage.setItem(key,value);}
 function UpdateHeadding()
@@ -31,4 +33,4 @@ fetch_files();let lastSearchText="";document.addEventListener("DOMContentLoaded"
 lastSearchText="";return;}
 var suggestions=GetSuggestions(search,5);if(suggestions.length==0&&Math.abs(lastSearchText.length-search.length)<2&&search.length>1)
 return;var suggestionList=document.getElementById("Suggestions");suggestionList.innerHTML="";for(var i=0;i<suggestions.length;i++){var suggestion=document.createElement("a");const SplitedSuggest=suggestions[i].split("/");suggestion.innerText=SplitedSuggest[SplitedSuggest.length-1];suggestion.classList.add("Suggest");var url="/"+suggestions[i];suggestion.setAttribute("href",url);suggestionList.appendChild(suggestion);}
-lastSearchText=search;});document.getElementById("Light-DarkToggleButton").addEventListener("click",function(){document.body.classList.toggle("Dark");if(document.body.classList.contains("Dark")){UpdateStorage("DarkMode","true");}else{UpdateStorage("DarkMode","false");}});UpdateByStorage();UpdateHeadding();UpdateAnker();});
+lastSearchText=search;});document.getElementById("Light-DarkToggleButton").addEventListener("click",function(){document.body.classList.toggle("Dark");if(document.body.classList.contains("Dark")){UpdateStorage("DarkMode","true");}else{UpdateStorage("DarkMode","false");}});InitializeDarkmode();UpdateHeadding();UpdateAnker();});
