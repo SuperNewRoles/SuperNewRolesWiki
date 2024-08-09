@@ -178,12 +178,12 @@ def ReplaceHeadding(result: str, content: str) -> str:
     # 行ごとにマークダウンテキストを処理
     for line in content.splitlines():
         if line.startswith("# "):  # 見出しレベル1
-            headertitle = line[2:].strip()
+            headertitle = line[2:].strip().split(" ")[0]
             headers[headertitle] = []
         elif line.startswith("## "):  # 見出しレベル2
             if headertitle not in headers:
                 headers[headertitle] = []
-            headers[headertitle].append(line[3:].strip())
+            headers[headertitle].append(line[3:].strip().split(" ")[0])
 
     result = result.replace("{CONTENT_HEADDING}", str(headers))
     
