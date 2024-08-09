@@ -35,10 +35,10 @@ body {
 
 body.Dark {
     background-color: rgb(64, 64, 64);
-    color: white;
-    
+    color: #E8EAED;
+
     > a {
-        color: white;
+        color: #E8EAED;
     }
 
     > div.HeaderObject {
@@ -61,7 +61,7 @@ body.Dark {
                         > a.Suggest {
                             background-color: rgb(127, 127, 127);
                             text-decoration: none;
-                            color: white;
+                            color: #E8EAED;
                         }
                     }
                 }
