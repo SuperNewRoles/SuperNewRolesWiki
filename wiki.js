@@ -83,9 +83,9 @@ function UpdateHeadding()
     for (var key in headding_dict)
     {
         if (key != "")
-            heads.append(Generate_Headding(key, headdings));
+            heads.push(Generate_Headding(key, headdings));
         for (var i = 0; i < headding_dict[key].length; i++) {
-            heads.append(Generate_Headding(headding_dict[key][i], headdings));
+            heads.push(Generate_Headding(headding_dict[key][i], headdings));
         }
     }
     /*
