@@ -13,13 +13,15 @@ return suggestions;}
 function RandomShow(HTMLId,len)
 {var random=Math.floor(Math.random()*len);for(var i=0;i<len;i++)
 {document.getElementById(HTMLId+"_"+i).style.display=i==random?"block":"none";}}
-function UpdateByCookie()
-{var cookies=document.cookie.split(";");for(var i=0;i<cookies.length;i++){var cookie=cookies[i].split("=");if(cookie[0].trim()=="DarkMode"&&cookie[1].trim()=="true"){document.body.classList.add("Dark");}}}
-function UpdateCookie(key,value)
-{var date=new Date();date.setTime(date.getTime()+1000*60*60*24*365);document.cookie=key+"="+value+"; expires="+date.toUTCString();}
+function UpdateByStorage()
+{var darkMode=localStorage.getItem("DarkMode");if(darkMode=="true")
+document.body.classList.add("Dark");else
+document.body.classList.remove("Dark");}
+function UpdateStorage(key,value)
+{localStorage.setItem(key,value);}
 fetch_files();let lastSearchText="";document.addEventListener("DOMContentLoaded",function(){document.getElementById("search").addEventListener("input",function(){var search=document.getElementById("search").value;if(search.length==0)
 {document.getElementById("Suggestions").innerHTML=""
 lastSearchText="";return;}
 var suggestions=GetSuggestions(search,5);if(suggestions.length==0&&Math.abs(lastSearchText.length-search.length)<2&&search.length>1)
 return;var suggestionList=document.getElementById("Suggestions");suggestionList.innerHTML="";for(var i=0;i<suggestions.length;i++){var suggestion=document.createElement("a");const SplitedSuggest=suggestions[i].split("/");suggestion.innerText=SplitedSuggest[SplitedSuggest.length-1];suggestion.classList.add("Suggest");var url="/"+suggestions[i];suggestion.setAttribute("href",url);suggestionList.appendChild(suggestion);}
-lastSearchText=search;});document.getElementById("Light-DarkToggleButton").addEventListener("click",function(){document.body.classList.toggle("Dark");if(document.body.classList.contains("Dark")){UpdateCookie("DarkMode","true");}else{UpdateCookie("DarkMode","false");}});UpdateByCookie();});UpdateByCookie();
+lastSearchText=search;});document.getElementById("Light-DarkToggleButton").addEventListener("click",function(){document.body.classList.toggle("Dark");if(document.body.classList.contains("Dark")){UpdateStorage("DarkMode","true");}else{UpdateStorage("DarkMode","false");}});UpdateByStorage();});UpdateByStorage();
