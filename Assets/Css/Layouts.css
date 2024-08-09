@@ -136,9 +136,25 @@ body > div.ContentsObject {
           display: flex;
           flex-direction: column;
           margin-right: 40px;
+          
+        &:first-child {
+          border-width: 1px;
+          border-radius: 4px;
+        }
+    
+        &:not(:last-child) {
+          border-radius: 4px 4px 0 0;
+    
+          &:not(:first-child) {
+            border-radius: 0;
+          }
+        }
 
-          > a.Button {
-            border-radius: 4px;
+        &:last-child {
+          border-radius: 0 0 4px 4px;
+        }
+        
+        > a.Button {
             padding: calc(0.5rem - 1px) 1em;
             cursor: pointer;
             transition: background-color 250ms;
