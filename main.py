@@ -36,7 +36,7 @@ def InitializeResultFolder():
 def GetFileData(path: str, defaultData: str) -> str:
     if not os.path.exists(path):
         return defaultData
-    with open(path, "r") as file:
+    with open(path, "r", encoding="utf-8") as file:
         return file.read()
 
 def GenerateDocumentListFile():
