@@ -79,14 +79,23 @@ function UpdateStorage(key, value)
 function UpdateHeadding()
 {
     var headdings = document.getElementById("Headdings");
+    let heads = [];
     for (var key in headding_dict)
     {
         if (key != "")
-            Generate_Headding(key, headdings);
+            heads.append(Generate_Headding(key, headdings));
         for (var i = 0; i < headding_dict[key].length; i++) {
-            Generate_Headding(headding_dict[key][i], headdings);
+            heads.append(Generate_Headding(headding_dict[key][i], headdings));
         }
     }
+    /*
+          border-bottom-right-radius: 10px;
+          border-bottom-left-radius: 10px;*/
+    const size = "10px";
+    heads[0].style.borderTopRightRadius = size;
+    heads[0].style.borderTopLeftRadius = size;
+    heads[heads.length - 1].style.borderBottomRightRadius = size;
+    heads[heads.length - 1].style.borderBottomLeftRadius = size;
 }
 function Generate_Headding(key, headdings)
 {
@@ -95,6 +104,7 @@ function Generate_Headding(key, headdings)
     headding.classList.add("Button");
     headding.setAttribute("href", "#" + key);
     headdings.appendChild(headding);
+    return headding;
 }
 function UpdateAnker() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
