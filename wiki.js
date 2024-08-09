@@ -95,5 +95,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
     UpdateByStorage();
+    console.log(headding_one);
 });
 UpdateByStorage();
+console.log(headding_one);
