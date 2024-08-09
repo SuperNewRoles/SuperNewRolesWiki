@@ -23,7 +23,7 @@ for(var i=0;i<len;i++)
 fetch_files()
 let lastSearchText=""
 document.addEventListener("DOMContentLoaded",function(){document.getElementById("search").addEventListener("input",function(){var search=document.getElementById("search").value;var suggestions=GetSuggestions(search,5)
-if(suggestions.length==0&&Math.abs(lastSearchText.length-search.length)<=2)
+if(suggestions.length==0&&Math.abs(lastSearchText.length-search.length)<=2&&search.length>1)
 return
 var suggestionList=document.getElementById("Suggestions")
 suggestionList.innerHTML=""
