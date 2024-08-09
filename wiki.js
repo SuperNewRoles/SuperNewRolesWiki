@@ -21,16 +21,12 @@ function RandomShow(HTMLId,len)
 for(var i=0;i<len;i++)
 {document.getElementById(HTMLId+"_"+i).style.display=i==random?"block":"none";}}
 fetch_files()
-let lastSearchText=""
-document.addEventListener("DOMContentLoaded",function(){document.getElementById("search").addEventListener("input",function(){var search=document.getElementById("search").value;var suggestions=GetSuggestions(search,5)
+let lastSearchText="";document.addEventListener("DOMContentLoaded",function(){document.getElementById("search").addEventListener("input",function(){var search=document.getElementById("search").value;if(search.length==0)
+{document.getElementById("Suggestions").innerHTML=""
+lastSearchText="";return;}
+var suggestions=GetSuggestions(search,5)
 if(suggestions.length==0&&Math.abs(lastSearchText.length-search.length)<2&&search.length>1)
 return
 var suggestionList=document.getElementById("Suggestions")
-suggestionList.innerHTML=""
-for(var i=0;i<suggestions.length;i++){var suggestion=document.createElement("a")
-const SplitedSuggest=suggestions[i].split("/")
-suggestion.innerText=SplitedSuggest[SplitedSuggest.length-1]
-suggestion.classList.add("Suggest");var url="/"+suggestions[i]
-suggestion.setAttribute("href",url)
-suggestionList.appendChild(suggestion)}
-lastSearchText=search});document.getElementById("Light-DarkToggleButton").addEventListener("click",function(){document.body.classList.toggle("Dark");});});
+suggestionList.innerHTML="";for(var i=0;i<suggestions.length;i++){var suggestion=document.createElement("a");const SplitedSuggest=suggestions[i].split("/");suggestion.innerText=SplitedSuggest[SplitedSuggest.length-1];suggestion.classList.add("Suggest");var url="/"+suggestions[i];suggestion.setAttribute("href",url);suggestionList.appendChild(suggestion);}
+lastSearchText=search;});document.getElementById("Light-DarkToggleButton").addEventListener("click",function(){document.body.classList.toggle("Dark");});});
