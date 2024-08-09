@@ -30,6 +30,6 @@ suggestionList.innerHTML=""
 for(var i=0;i<suggestions.length;i++){var suggestion=document.createElement("div")
 const SplitedSuggest=suggestions[i].split("/")
 suggestion.innerText=SplitedSuggest[SplitedSuggest.length-1]
-suggestion.classList.add("Suggestion");var url="/"+suggestions[i]
+suggestion.classList.add("Suggest");var url="/"+suggestions[i]
 suggestion.addEventListener("click",function(){window.location.href=url});suggestionList.appendChild(suggestion)}
 lastSearchText=search});document.getElementById("Light-DarkToggleButton").addEventListener("click",function(){document.body.classList.toggle("Dark");});});
