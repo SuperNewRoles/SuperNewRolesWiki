@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
             var suggestion = document.createElement("div")
             const SplitedSuggest = suggestions[i].split("/")
             suggestion.innerText = SplitedSuggest[SplitedSuggest.length - 1]
-            suggestion.classList.add("Suggestion");
+            suggestion.classList.add("Suggest");
             var url = "/" + suggestions[i]
             // Add anker
             suggestion.addEventListener("click", function () {
