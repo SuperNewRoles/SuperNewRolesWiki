@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("search").addEventListener("input", function () {
         var search = document.getElementById("search").value;
         var suggestions = GetSuggestions(search, 5)
-        var suggestionList = document.getElementById("AllSuggest")
+        var suggestionList = document.getElementById("Suggestions")
         suggestionList.innerHTML = ""
         for (var i = 0; i < suggestions.length; i++) {
             var suggestion = document.createElement("div")
