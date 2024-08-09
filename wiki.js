@@ -64,13 +64,13 @@ function UpdateHeadding()
     for (var key in headding_dict)
     {
         if (key != "")
-            Generate_Headding(key);
+            Generate_Headding(key, headdings);
         for (var i = 0; i < headding_dict[key].length; i++) {
-            Generate_Headding(headding_dict[key][i]);
+            Generate_Headding(headding_dict[key][i], headdings);
         }
     }
 }
-function Generate_Headding(key)
+function Generate_Headding(key, headdings)
 {
     var headding = document.createElement("a");
     headding.innerText = key;
