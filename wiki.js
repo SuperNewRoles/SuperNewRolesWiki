@@ -60,7 +60,7 @@ function UpdateStorage(key, value)
 }
 function UpdateHeadding()
 {
-    var headdings = document.getElementById("ContentsTableObject");
+    var headdings = document.getElementById("Headdings");
     for (var i = 0; i < headding_one.length; i++)
     {
         var headding = document.createElement("a");
