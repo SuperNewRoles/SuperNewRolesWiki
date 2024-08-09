@@ -131,7 +131,9 @@ body > div.ContentsObject {
         /* ここで目次の最大の横幅変えられる */
         max-width: 15rem;
         
-        > a.Button {
+        > div.Headdings{
+        align-items: flex-end;
+          > a.Button {
             border-radius: 4px;
             padding: calc(0.5rem - 1px) 1em;
             cursor: pointer;
@@ -142,6 +144,7 @@ body > div.ContentsObject {
                 background-color: rgb(255, 239, 128);
                 color: black;
             }
+          }
         }
     }
     
