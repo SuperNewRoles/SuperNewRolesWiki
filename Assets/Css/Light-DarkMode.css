@@ -37,6 +37,10 @@ body.Dark {
     background-color: rgb(64, 64, 64);
     color: white;
     
+    > a {
+        color: white;
+    }
+
     > div.HeaderObject {
         background-color: rgb(127, 127, 127);
         
