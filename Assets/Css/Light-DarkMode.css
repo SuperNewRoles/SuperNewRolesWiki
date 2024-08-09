@@ -1,11 +1,15 @@
 body {
     background-color: rgb(255, 255, 255);
     color: black;
-    
-    a.Button {
-      text-decoration: none;
-      color: black;
-      background-color: rgb(211, 219, 227);
+
+    > div.ContentsObject {
+      > div.ContentsTableObject {
+        > a.Button {
+          text-decoration: none;
+          color: black;
+          background-color: rgb(211, 219, 227);
+        }
+      }
     }
 
     > div.HeaderObject {
@@ -52,11 +56,15 @@ body.Dark {
         color: rgb(117, 214, 198);
       }
     }
-
-    a.Button {
-      text-decoration: none;
-      color: #E8EAED;
-      background-color: rgb(101, 109, 117);
+    
+    > div.ContentsObject {
+      > div.ContentsTableObject {
+        > a.Button {
+          text-decoration: none;
+          color: #E8EAED;
+          background-color: rgb(101, 109, 117);
+        }
+      }
     }
 
     > div.HeaderObject {
