@@ -58,6 +58,18 @@ function UpdateStorage(key, value)
     // Local storage
     localStorage.setItem(key, value);
 }
+function UpdateHeadding()
+{
+    var headdings = document.getElementById("Headdings");
+    for (var i = 0; i < headding_one.length; i++)
+    {
+        var headding = document.createElement("a");
+        headding.innerText = headding_one[i];
+        headding.classList.add("Button");
+        headding.setAttribute("href", "#" + headding_one[i]);
+        headdings.appendChild(headding);
+    }
+}
 fetch_files();
 let lastSearchText = "";
 document.addEventListener("DOMContentLoaded", function () {
@@ -96,6 +108,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     UpdateByStorage();
     console.log(headding_one);
+    UpdateHeadding();
 });
-UpdateByStorage();
 console.log(headding_one);
+UpdateHeadding();
