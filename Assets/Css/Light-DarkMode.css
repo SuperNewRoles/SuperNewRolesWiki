@@ -21,7 +21,7 @@ body {
                 
                 > div.SearchBox {
                     > div.AllSuggest {
-                        > div.Suggest {
+                        > a.Suggest {
                             background-color: rgb(191, 191, 191);
                         }
                     }
@@ -52,7 +52,7 @@ body.Dark {
                 
                 > div.SearchBox {
                     > div.AllSuggest {
-                        > div.Suggest {
+                        > a.Suggest {
                             background-color: rgb(127, 127, 127);
                         }
                     }
