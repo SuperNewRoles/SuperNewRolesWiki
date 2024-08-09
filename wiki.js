@@ -68,7 +68,6 @@ function UpdateHeadding()
         headding.classList.add("Button");
         headding.setAttribute("href", "#" + headding_one[i]);
         headdings.appendChild(headding);
-        headdings.appendChild(document.createElement("br"));
     }
 }
 fetch_files();
