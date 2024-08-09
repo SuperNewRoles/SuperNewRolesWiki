@@ -1,0 +1,63 @@
+body {
+    background-color: rgb(255, 255, 255);
+    color: black;
+    
+    > div.HeaderObject {
+        background-color: rgb(191, 191, 191);
+        
+        > div.WidthLimit {
+            > div.Right {
+                > div#Light-DarkToggleButton {
+                    > svg:first-child {
+                        display: block;
+                        color: black;
+                    }
+                    
+                    > svg:last-child {
+                        display: none;
+                        color: white;
+                    }
+                }
+                
+                > div.SearchBox {
+                    > div.AllSuggest {
+                        > div.Suggest {
+                            background-color: rgb(191, 191, 191);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+body.Dark {
+    background-color: rgb(64, 64, 64);
+    color: white;
+    
+    > div.HeaderObject {
+        background-color: rgb(127, 127, 127);
+        
+        > div.WidthLimit {
+            > div.Right {
+                > div#Light-DarkToggleButton {
+                    > svg:first-child {
+                        display: none;
+                    }
+                    
+                    > svg:last-child {
+                        display: block;
+                    }
+                }
+                
+                > div.SearchBox {
+                    > div.AllSuggest {
+                        > div.Suggest {
+                            background-color: rgb(127, 127, 127);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

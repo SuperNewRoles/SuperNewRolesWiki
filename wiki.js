@@ -46,3 +46,20 @@ function RandomShow(HTMLId, len)
     }
 }
 fetch_files()
+document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("search").addEventListener("input", function () {
+        var search = document.getElementById("search").value;
+        var suggestions = GetSuggestions(search, 5)
+        var suggestionList = document.getElementById("AllSuggest")
+        suggestionList.innerHTML = ""
+        for (var i = 0; i < suggestions.length; i++) {
+            var suggestion = document.createElement("div")
+            suggestion.innerText = suggestions[i]
+            suggestion.classList.add("Suggestion");
+            suggestionList.appendChild(suggestion)
+        }
+    });
+    document.getElementById("Light-DarkToggleButton").addEventListener("click", function () {
+        document.body.classList.toggle("Dark");
+    });
+});
