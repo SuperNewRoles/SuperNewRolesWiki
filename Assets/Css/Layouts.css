@@ -59,40 +59,42 @@ body > div.HeaderObject {
                     flex-direction: column;
                     position: absolute;
                     top: 3.25rem;
-                    
-                    > a.Suggest {
-                        display: flex;
-                        align-items: center;
-                        border: solid rgb(89, 92, 96);
-                        border-width: 0 1px 1px 1px;
-                        padding: 0.5rem;
-                        /* 検索ボックスの大きさ変えるならここもおなしゃす() */
-                        /* position: absolute使ってるからwidth: 100%使えんのや */
-                        /* 別な方法思いついたらそれでもOK */
-                        width: calc(13.25rem + 1px);
-                        height: 2.5rem;
-                        
-                        &:first-child {
-                            border-width: 1px;
-                            border-radius: 4px;
-                        }
-                        
-                        &:not(:last-child) {
-                            border-radius: 4px 4px 0 0;
-                            
-                            &:not(:first-child) {
-                                border-radius: 0;
-                            }
-                        }
-                        
-                        &:last-child {
-                            border-radius: 0 0 4px 4px;
-                        }
-                    }
                 }
             }
         }
     }
+}
+
+a.Suggest {
+    display: flex;
+    align-items: center;
+    border: solid rgb(89, 92, 96);
+    border-width: 0 1px 1px 1px;
+    padding: 0.5rem;
+    /* 検索ボックスの大きさ変えるならここもおなしゃす() */
+    /* position: absolute使ってるからwidth: 100%使えんのや */
+    /* 別な方法思いついたらそれでもOK */
+    width: calc(13.25rem + 1px);
+    height: 2.5rem;
+
+    &:first-child {
+        border-width: 1px;
+        border-radius: 4px;
+    }
+    
+    &:not(:last-child) {
+        border-radius: 4px 4px 0 0;
+    
+        &:not(:first-child) {
+            border-radius: 0;
+        }
+    }
+}
+
+&:last-child {
+    border-radius: 0 0 4px 4px;
+}
+
 }
 
 body > div.FooterObject {
