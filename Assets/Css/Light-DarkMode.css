@@ -23,6 +23,8 @@ body {
                     > div.AllSuggest {
                         > a.Suggest {
                             background-color: rgb(191, 191, 191);
+                            text-decoration: none;
+                            color: black;
                         }
                     }
                 }
@@ -54,6 +56,8 @@ body.Dark {
                     > div.AllSuggest {
                         > a.Suggest {
                             background-color: rgb(127, 127, 127);
+                            text-decoration: none;
+                            color: white;
                         }
                     }
                 }
