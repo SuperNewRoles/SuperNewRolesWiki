@@ -89,12 +89,10 @@ a.Suggest {
             border-radius: 0;
         }
     }
-}
 
-&:last-child {
-    border-radius: 0 0 4px 4px;
-}
-
+    &:last-child {
+        border-radius: 0 0 4px 4px;
+    }
 }
 
 body > div.FooterObject {
