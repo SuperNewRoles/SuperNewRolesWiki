@@ -22,7 +22,7 @@ for(var i=0;i<len;i++)
 {document.getElementById(HTMLId+"_"+i).style.display=i==random?"block":"none";}}
 fetch_files()
 document.addEventListener("DOMContentLoaded",function(){document.getElementById("search").addEventListener("input",function(){var search=document.getElementById("search").value;var suggestions=GetSuggestions(search,5)
-var suggestionList=document.getElementById("AllSuggest")
+var suggestionList=document.getElementById("Suggestions")
 suggestionList.innerHTML=""
 for(var i=0;i<suggestions.length;i++){var suggestion=document.createElement("div")
 suggestion.innerText=suggestions[i]
