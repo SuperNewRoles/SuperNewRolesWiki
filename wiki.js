@@ -25,5 +25,7 @@ document.addEventListener("DOMContentLoaded",function(){document.getElementById(
 var suggestionList=document.getElementById("Suggestions")
 suggestionList.innerHTML=""
 for(var i=0;i<suggestions.length;i++){var suggestion=document.createElement("div")
-suggestion.innerText=suggestions[i]
-suggestion.classList.add("Suggestion");suggestionList.appendChild(suggestion)}});document.getElementById("Light-DarkToggleButton").addEventListener("click",function(){document.body.classList.toggle("Dark");});});
+const SplitedSuggest=suggestions[i].split("/")
+suggestion.innerText=SplitedSuggest[SplitedSuggest.length-1]
+suggestion.classList.add("Suggestion");var url="/"+suggestions[i]
+suggestion.addEventListener("click",function(){window.location.href=url});suggestionList.appendChild(suggestion)}});document.getElementById("Light-DarkToggleButton").addEventListener("click",function(){document.body.classList.toggle("Dark");});});
