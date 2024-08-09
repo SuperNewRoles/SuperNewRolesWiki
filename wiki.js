@@ -44,14 +44,30 @@ function RandomShow(HTMLId, len)
             i == random ? "block" : "none";
     }
 }
+function SetDarkMode(isDarkMode) {
+    if (isDarkMode) {
+        document.body.classList.add("Dark");
+    } else {
+        document.body.classList.remove("Dark");
+    }
+}
 function UpdateByStorage()
 {
     // Local storage
     var darkMode = localStorage.getItem("DarkMode");
     if (darkMode == "true")
-        document.body.classList.add("Dark");
+        SetDarkMode(true);
+    else if (darkMode == "false")
+        SetDarkMode(false);
     else
-        document.body.classList.remove("Dark");
+    {
+        // ブラウザがダークモードか判定
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            SetDarkMode(true);
+        } else {
+            SetDarkMode(false);
+        }
+    }
 }
 function UpdateStorage(key, value)
 {
