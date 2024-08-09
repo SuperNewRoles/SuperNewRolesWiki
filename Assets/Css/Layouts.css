@@ -131,7 +131,7 @@ body > div.ContentsObject {
         /* ここで目次の最大の横幅変えられる */
         max-width: 15rem;
         
-        > div.Button {
+        > a.Button {
             border-radius: 4px;
             padding: calc(0.5rem - 1px) 1em;
             background-color: rgb(101, 109, 117);
