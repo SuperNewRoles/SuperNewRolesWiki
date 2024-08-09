@@ -44,21 +44,19 @@ function RandomShow(HTMLId, len)
             i == random ? "block" : "none";
     }
 }
-function UpdateByCookie()
+function UpdateByStorage()
 {
-    var cookies = document.cookie.split(";");
-    for (var i = 0; i < cookies.length; i++) {
-        var cookie = cookies[i].split("=");
-        if (cookie[0].trim() == "DarkMode" && cookie[1].trim() == "true") {
-            document.body.classList.add("Dark");
-        }
-    }
+    // Local storage
+    var darkMode = localStorage.getItem("DarkMode");
+    if (darkMode == "true")
+        document.body.classList.add("Dark");
+    else
+        document.body.classList.remove("Dark");
 }
-function UpdateCookie(key, value)
+function UpdateStorage(key, value)
 {
-    var date = new Date();
-    date.setTime(date.getTime() + 1000 * 60 * 60 * 24 * 365);
-    document.cookie = key + "=" + value + "; expires=" + date.toUTCString();
+    // Local storage
+    localStorage.setItem(key, value);
 }
 fetch_files();
 let lastSearchText = "";
@@ -91,11 +89,11 @@ document.addEventListener("DOMContentLoaded", function () {
         document.body.classList.toggle("Dark");
         // Set Cookie
         if (document.body.classList.contains("Dark")) {
-            UpdateCookie("DarkMode", "true");
+            UpdateStorage("DarkMode", "true");
         } else {
-            UpdateCookie("DarkMode", "false");
+            UpdateStorage("DarkMode", "false");
         }
     });
-    UpdateByCookie();
+    UpdateByStorage();
 });
-UpdateByCookie();
+UpdateByStorage();
