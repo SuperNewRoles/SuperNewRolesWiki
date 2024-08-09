@@ -37,8 +37,14 @@ body.Dark {
     background-color: rgb(64, 64, 64);
     color: #E8EAED;
 
-    > a {
-        color: #E8EAED;
+    a {
+      &:link {
+        color: rgb(127, 235, 65);
+      }
+
+      &:visited {
+        color: rgb(117, 214, 198);
+      }
     }
 
     > div.HeaderObject {
