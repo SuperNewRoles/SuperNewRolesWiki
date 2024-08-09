@@ -71,7 +71,7 @@ def ProcessAssets():
             # 相対パスを取得
             fileName = os.path.relpath(filePath, Constants.AssetFolder)
             # ディレクトリを生成
-            os.makedirs(f"{Constants.ResultDirectory}/{os.path.dirname(fileName)}", exist_ok=True)
+            os.makedirs(f"{Constants.ResultDirectory}/Assets/{os.path.dirname(fileName)}", exist_ok=True)
             # ファイルをコピー
             with open(filePath, "rb") as asset:
                 if Constants.IsConvertWEBP and (fileName.endswith(".png") or fileName.endswith(".jpg")):
