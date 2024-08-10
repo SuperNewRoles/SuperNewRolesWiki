@@ -2,6 +2,17 @@ body {
     margin: 0 auto;
 }
 
+img {
+    max-width: 500px;
+    height: auto;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: #c5ccd6;
+}
+
 body > div.HeaderObject {
     display: flex;
     justify-content: space-between;
@@ -149,6 +160,12 @@ body > div.ContentsObject {
                 color: black;
             }
           }
+        }
+    }
+    /* スマホの場合、div.ContentsTableObjectを非表示にする */
+    @media screen and (max-width: 768px) {
+        > div.ContentsTableObject {
+            display: none;
         }
     }
     

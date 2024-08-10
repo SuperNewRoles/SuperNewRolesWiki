@@ -15,7 +15,7 @@ body {
     }
 
     > div.HeaderObject {
-        background-color: rgb(235, 235, 235);
+        background-color: #f2f3f7;
         
         > div.WidthLimit {
             > div.Right {
