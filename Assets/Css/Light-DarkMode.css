@@ -18,7 +18,7 @@ body {
           > a.Button {
             text-decoration: none;
             color: black;
-            background-color: rgb(211, 219, 227);
+            /*background-color: rgb(211, 219, 227);*/
           }
         }
       }
@@ -75,7 +75,7 @@ body.Dark {
           > a.Button {
             text-decoration: none;
             color: #E8EAED;
-            background-color: rgb(101, 109, 117);
+            /*background-color: rgb(101, 109, 117);*/
           }
         }
       }
