@@ -25,7 +25,7 @@ function UpdateHeadding()
 {var headdings=document.getElementById("Headdings");let heads=[];for(var key in headding_dict)
 {if(key!="")
 heads.push(Generate_Headding(key,headdings));for(var i=0;i<headding_dict[key].length;i++){heads.push(Generate_Headding(headding_dict[key][i],headdings));}}
-const size="10px";heads[0].style.borderTopRightRadius=size;heads[0].style.borderTopLeftRadius=size;heads[heads.length-1].style.borderBottomRightRadius=size;heads[heads.length-1].style.borderBottomLeftRadius=size;}
+const size="25px";heads[0].style.borderTopRightRadius=size;heads[0].style.borderTopLeftRadius=size;heads[heads.length-1].style.borderBottomRightRadius=size;heads[heads.length-1].style.borderBottomLeftRadius=size;}
 function Generate_Headding(key,headdings)
 {var headding=document.createElement("a");headding.innerText=key;headding.classList.add("Button");headding.setAttribute("href","#"+key);headdings.appendChild(headding);return headding;}
 function UpdateAnker(){document.querySelectorAll('a[href^="#"]').forEach(anchor=>{anchor.addEventListener('click',function(e){e.preventDefault();const targetId=this.getAttribute('href').substring(1);const targetElement=document.getElementById(targetId);const headerOffset=75;const elementPosition=targetElement.getBoundingClientRect().top;const offsetPosition=elementPosition+window.pageYOffset-headerOffset;window.scrollTo({top:offsetPosition,behavior:'smooth'});});});}
