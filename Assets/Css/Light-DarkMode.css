@@ -2,6 +2,16 @@ body {
     background-color: rgb(255, 255, 255);
     color: black;
 
+    a {
+        &:link {
+            color: #6080cc;
+        }
+
+        &:visited {
+            color: #7660cc;
+        }
+    }
+
     > div.ContentsObject {
       > div.ContentsTableObject {
         > div#Headdings{
