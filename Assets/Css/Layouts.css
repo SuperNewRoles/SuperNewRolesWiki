@@ -183,5 +183,6 @@ body > div.ContentsObject {
         flex-direction: column;
         gap: 10px;
         width: 80%;
+        padding-left: 10px;
     }
 }
