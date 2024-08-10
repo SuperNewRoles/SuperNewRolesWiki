@@ -183,12 +183,19 @@ body > div.ContentsObject {
         padding-top: 8px;
         margin-left: 230px;
     }
-
+    
     @media screen and (min-width: 768px) {
       > div.Contents {
-          padding-right: 5%;
+          padding-right: 4%;
       }
     }
+
+    @media screen and (max-width: 768px) {
+      > div.Contents {          
+          padding-left: 16px;
+      }
+    }
+
     /* これ以下のulを対象とする */
     div.Contents ul {
        padding-left: 22px;
