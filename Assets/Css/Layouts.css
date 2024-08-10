@@ -157,12 +157,13 @@ body > div.ContentsObject {
           flex-direction: column;
           margin-right: 40px;
           display: inline-grid;
+          width: 100%;
         
           > a.Button {
             padding: calc(0.5rem - 1px) 1em;
             cursor: pointer;
             transition: background-color 250ms;
-            width: 80%;
+            width: 100%;
             
             &:hover {
                 background-color: rgb(255, 239, 128);
