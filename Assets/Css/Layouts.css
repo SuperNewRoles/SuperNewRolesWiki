@@ -51,7 +51,7 @@ body > div.HeaderObject {
         }
         
         /* スマホの場合、左ヘッダーを非表示にする */
-        @media screen and (max-width: 768px) {
+        @media screen and (max-width: 490px) {
             > div.Left {
                 display: none;
             }
@@ -190,6 +190,17 @@ body > div.ContentsObject {
         flex-direction: column;
         gap: 10px;
         width: 80%;
-        padding-left: 10px;
+
+
+        /* これ以下のulを対象とする */
+        div.Contents ul {
+           padding-left: 22px;
+        }
+    }
+
+    @media screen and (min-width: 768px) {
+      > div.Contents {
+          padding-right: 5%;
+      }
     }
 }
