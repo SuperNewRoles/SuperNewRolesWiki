@@ -7,6 +7,14 @@ img {
     height: auto;
 }
 
+a {
+    text-decoration:none;
+}
+a:hover {
+    text-decoration: underline;
+    transition: text-decoration 100ms;
+}
+
 hr {
     border: 0;
     height: 1px;
