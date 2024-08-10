@@ -50,6 +50,13 @@ body > div.HeaderObject {
             width: 90%;
         }
         
+        /* スマホの場合、左ヘッダーを非表示にする */
+        @media screen and (max-width: 768px) {
+            > div.Left {
+                display: none;
+            }
+        }
+
         > div.Right {
             display: flex;
             flex-direction: row-reverse;
