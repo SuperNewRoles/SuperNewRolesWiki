@@ -135,7 +135,6 @@ body > div.FooterObject {
 }
 
 body > div.ContentsObject {
-    display: flex;
     align-items: flex-start;
     justify-content: center;
     margin: 64px auto auto;
@@ -146,10 +145,9 @@ body > div.ContentsObject {
     height: 100%;
     
     > div.ContentsTableObject {
-        width: 250px;
+        width: 210px;
         padding: 20px;
         background-color: #f5f5f5;
-        position: fixed;
         height: 100%;
         
         > div#Headdings {
@@ -177,22 +175,21 @@ body > div.ContentsObject {
     }
     
     > div.Contents {
-        display: flex;
         flex: 3 1 0px;
         flex-direction: column;
         gap: 10px;
         width: 80%;
         padding-top: 8px;
-
-        /* これ以下のulを対象とする */
-        div.Contents ul {
-           padding-left: 22px;
-        }
+        margin-left: 210px;
     }
 
     @media screen and (min-width: 768px) {
       > div.Contents {
           padding-right: 5%;
       }
+    }
+    /* これ以下のulを対象とする */
+    div.Contents ul {
+       padding-left: 22px;
     }
 }
