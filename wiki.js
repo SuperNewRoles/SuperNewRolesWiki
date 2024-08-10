@@ -88,10 +88,7 @@ function UpdateHeadding()
             heads.push(Generate_Headding(headding_dict[key][i], headdings));
         }
     }
-    /*
-          border-bottom-right-radius: 10px;
-          border-bottom-left-radius: 10px;*/
-    const size = "10px";
+    const size = "25px";
     heads[0].style.borderTopRightRadius = size;
     heads[0].style.borderTopLeftRadius = size;
     heads[heads.length - 1].style.borderBottomRightRadius = size;
